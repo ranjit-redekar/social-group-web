@@ -1,0 +1,47 @@
+<form [formGroup]="form" (ngSubmit)="register()" class="w3-container">
+  <mat-form-field class="w3-col">
+    <input 
+      matInput type="text" 
+      placeholder="Enter first name"
+      formControlName="fname">
+      <mat-error *ngIf="fname.invalid">First name is required</mat-error>
+  </mat-form-field>
+  <mat-form-field class="w3-col">
+      <input 
+        matInput type="text" 
+        placeholder="Enter last name"
+        formControlName="lname">
+        <mat-error *ngIf="lname.invalid">Last name is required</mat-error>
+    </mat-form-field>
+  <mat-form-field class="w3-col">
+      <input 
+        matInput type="email" 
+        placeholder="Enter email"
+        formControlName="email">
+        <mat-error *ngIf="email.invalid">Email is required</mat-error>
+  </mat-form-field>
+  <mat-form-field class="w3-col">
+      <input 
+        matInput [type]="hide ? 'password' : 'text'" 
+        placeholder="Enter password" 
+        formControlName="password">
+      <mat-icon 
+        matSuffix (click)="hide = !hide">
+        {{hide ? 'visibility' : 'visibility_off'}}
+      </mat-icon>
+      <mat-error *ngIf="password.invalid">Password is required</mat-error>
+  </mat-form-field>
+  <mat-form-field class="w3-col">
+      <input 
+        matInput type="password" 
+        placeholder="confirm password"
+        formControlName="cpassword">
+        <mat-error *ngIf="cpassword.invalid">Confirm password is required</mat-error>
+  </mat-form-field>
+  <!-- <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>   -->
+  <button mat-raised-button color="primary" type="submit">Register</button>
+</form>

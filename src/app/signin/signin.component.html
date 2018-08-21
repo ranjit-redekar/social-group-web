@@ -1,0 +1,20 @@
+<form class="w3-container" [formGroup]="signinForm" (ngSubmit)="signin()">
+  <mat-form-field class="w3-row w3-col">
+    <input 
+      matInput placeholder="Enter username" 
+      type="text" 
+      formControlName="username">
+    <mat-error *ngIf="username.invalid">usename is required</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="w3-row w3-col">
+    <input matInput [type]="hide ? 'password' : 'text'" 
+    placeholder="Enter password" formControlName="password">
+    <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+  </mat-form-field>
+  <mat-error *ngIf="signinForm.errors">username or password is wrong</mat-error>
+  <button
+    mat-raised-button color="primary" 
+    type="submit">Login
+  </button>
+</form>

@@ -1,0 +1,51 @@
+<mat-tab-group>
+  <mat-tab label="Mess Details">
+    <!-- Mess details  -->
+    <form class="w3-container">
+      <div class="w3-row">
+        <mat-form-field class="w3-half">
+          <input matInput type="text" placeholder="Enter mess name">
+        </mat-form-field>
+        <mat-form-field class="w3-half">
+          <input matInput type="number" placeholder="capacity">
+        </mat-form-field>
+      </div>
+      <div class="w3-row">
+        <mat-form-field class="w3-col">
+          <textarea matInput placeholder="description" type="text"></textarea>
+        </mat-form-field>
+      </div>
+      <!-- <mat-form-field class="w3-col"> -->
+          <button mat-raised-button color="primary">Save</button> 
+      <!-- </mat-form-field> -->
+    </form>
+  </mat-tab>
+  <mat-tab label="Day Details">
+    <!-- Days details -->
+    <form>
+      <mat-tab-group>
+        <mat-tab label="Monday">
+          <app-day dayName="monday"></app-day>
+        </mat-tab>
+        <mat-tab label="Tuesday">
+            <app-day dayName="tuesday"></app-day>
+        </mat-tab>
+        <mat-tab label="Wednesday">
+            <app-day dayName="wednesday"></app-day>
+        </mat-tab>
+        <mat-tab label="Thursday">
+            <app-day dayName="thursday"></app-day>
+        </mat-tab>
+        <mat-tab label="Friday">
+            <app-day dayName="friday"></app-day>
+        </mat-tab>
+        <mat-tab label="Saturday">
+            <app-day dayName="saturday"></app-day>
+        </mat-tab>
+        <mat-tab label="Sunday">
+            <app-day dayName="sunday"></app-day>
+        </mat-tab>
+      </mat-tab-group>
+    </form>
+  </mat-tab>
+</mat-tab-group>

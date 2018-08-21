@@ -1,0 +1,42 @@
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <!-- <span> -->
+        <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <a mat-button routerLink=""><h1>Social App</h1></a>
+    <!-- </span> -->
+        <span class="flex-spacer"></span>
+        <a mat-raised-button routerLink="/signin" class="w3-right">Signin</a>
+        <a mat-raised-button routerLink="/register" class="w3-right">Register</a>  
+  </mat-toolbar>
+
+  <mat-sidenav-container class="sidenav-container" 
+        [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+        [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <a mat-list-item routerLink="."><mat-icon>home_border</mat-icon>Home</a>
+        <a mat-list-item routerLink="."><mat-icon>favorite_border</mat-icon>Favourite Food</a>
+        <a mat-list-item routerLink="."><mat-icon>local_dining</mat-icon>Favourite Groups</a>
+        <a mat-list-item routerLink="/add-mess"><mat-icon>add_circel_outline</mat-icon>Add Mess</a>
+        <a mat-list-item routerLink="."><mat-icon>help</mat-icon>Help</a>
+
+        <mat-form-field>
+          <mat-select placeholder="Select Theme" (selectionChange)="onSetTheme()" [(value)]="theme">
+            <mat-option value="default-theme">Default Theme</mat-option>
+            <mat-option value="light-theme">Light Theme</mat-option>
+            <mat-option value="dark-theme">Dark Theme</mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="w3-container">
+          <router-outlet></router-outlet>
+        <div class="w3-col l3 m6 w3-center" *ngFor="let content of fillerContent">
+          <!-- <app-pin-view></app-pin-view> -->
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

@@ -1,0 +1,28 @@
+<mat-form-field>
+  <input matInput type="number" placeholder="Price">
+</mat-form-field>
+
+<mat-button-toggle-group>
+  <mat-button-toggle color="primary" value="veg">Veg</mat-button-toggle>
+  <!-- <mat-button-toggle value="non-veg">eggetarian</mat-button-toggle> -->
+  <mat-button-toggle value="both">Non-veg</mat-button-toggle>
+</mat-button-toggle-group>    
+
+<mat-form-field class="chip-list">
+  <mat-chip-list #chipList>
+    <mat-chip *ngFor="let menu of menus" [selectable]="selectable"
+        [removable]="removable" (removed)="remove(menu)">
+        {{menu.name}}
+        <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+    </mat-chip>
+
+    <input placeholder="New menu..."
+           [matChipInputFor]="chipList"
+           [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+           [matChipInputAddOnBlur]="addOnBlur"
+           (matChipInputTokenEnd)="add($event)">
+  </mat-chip-list>
+</mat-form-field>
+<mat-form-field class="chip-list">
+  <textarea matInput placeholder="Description"></textarea>
+</mat-form-field>
